@@ -12,8 +12,8 @@ gemini_pro_player_dict = {}
 default_model_dict = {}
 
 error_info="⚠️⚠️⚠️\nSomething went wrong !\nplease try to change your prompt or contact the admin !"
-before_generate_info="🤖Generating🤖"
-download_pic_notify="🤖Loading picture🤖"
+before_generate_info="🤖 Bot sedang menulis jawaban 🤖"
+download_pic_notify="🤖 Bot sedang membuat gambar 🤖"
 
 n = 30  #Number of historical records to keep
 
@@ -251,7 +251,7 @@ async def main():
     @bot.message_handler(commands=["start"])
     async def gemini_handler(message: Message):
         try:
-            await bot.reply_to( message , escape("Welcome, you can ask me questions now. \nFor example: `Who is john lennon?`"), parse_mode="MarkdownV2")
+            await bot.reply_to( message , escape("Welcome, you can ask me questions now. \nFor example: `Siapa itu jokowi?`"), parse_mode="MarkdownV2")
         except IndexError:
             await bot.reply_to(message, error_info)
 
