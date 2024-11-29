@@ -228,6 +228,8 @@ async def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("tg_token", help="telegram token")
     parser.add_argument("GOOGLE_GEMINI_KEY", help="Google Gemini API key")
+    parser.add_argument("auth_id", help="Authorized user ID", type=int)  # Tambahkan auth_id
+    parser.add_argument("auth_group_id", help="Authorized group ID", type=int)  # Tambahkan auth_group_id
     options = parser.parse_args()
     print("Arg parse done.")
 
@@ -250,6 +252,9 @@ async def main():
     # Init commands
     @bot.message_handler(commands=["start"])
     async def gemini_handler(message: Message):
+        if message.from_user.id != options.auth_id or message.chat.id != options.auth_group_id:
+            await bot.reply_to(message, "Maaf, bot ini hanya bisa digunakan oleh pemilik atau di grup tertentu.")
+            return
         try:
             await bot.reply_to( message , escape("Welcome, you can ask me questions now. \nFor example: `Siapa itu jokowi?`"), parse_mode="MarkdownV2")
         except IndexError:
