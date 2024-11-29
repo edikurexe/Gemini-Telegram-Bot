@@ -252,13 +252,14 @@ async def main():
     # Init commands
     @bot.message_handler(commands=["start"])
     async def gemini_handler(message: Message):
-        if message.from_user.id != options.auth_id or message.chat.id != options.auth_group_id:
+        if message.from_user.id != options.auth_id and message.chat.id != options.auth_group_id:  # Gunakan 'and'
             await bot.reply_to(message, "Maaf, bot ini hanya bisa digunakan oleh pemilik atau di grup tertentu.")
             return
         try:
             await bot.reply_to( message , escape("Welcome, you can ask me questions now. \nFor example: `Siapa itu jokowi?`"), parse_mode="MarkdownV2")
         except IndexError:
             await bot.reply_to(message, error_info)
+
 
     @bot.message_handler(commands=["gemini"])
     async def gemini_handler(message: Message):
