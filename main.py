@@ -263,9 +263,9 @@ async def main():
 
     @bot.message_handler(commands=["gemini"])
     async def gemini_handler(message: Message):
-        if message.from_user.id != options.auth_id and message.chat.id != options.auth_group_id:  # Ditambahkan di sini
-        await bot.reply_to(message, "Maaf, bot ini hanya bisa digunakan oleh pemilik atau di grup tertentu.")
-        return
+        if message.from_user.id != options.auth_id and message.chat.id != options.auth_group_id:  # Gunakan 'and'
+            await bot.reply_to(message, "Maaf, bot ini hanya bisa digunakan oleh pemilik atau di grup tertentu.")
+            return
         try:
             m = message.text.strip().split(maxsplit=1)[1].strip()
         except IndexError:
@@ -275,9 +275,9 @@ async def main():
 
     @bot.message_handler(commands=["gemini_pro"])
     async def gemini_handler(message: Message):
-        if message.from_user.id != options.auth_id and message.chat.id != options.auth_group_id:  # Ditambahkan di sini
-        await bot.reply_to(message, "Maaf, bot ini hanya bisa digunakan oleh pemilik atau di grup tertentu.")
-        return
+        if message.from_user.id != options.auth_id and message.chat.id != options.auth_group_id:  # Gunakan 'and'
+            await bot.reply_to(message, "Maaf, bot ini hanya bisa digunakan oleh pemilik atau di grup tertentu.")
+            return
         try:
             m = message.text.strip().split(maxsplit=1)[1].strip()
         except IndexError:
@@ -287,9 +287,9 @@ async def main():
             
     @bot.message_handler(commands=["clear"])
     async def gemini_handler(message: Message):
-        if message.from_user.id != options.auth_id and message.chat.id != options.auth_group_id:  # Ditambahkan di sini
-        await bot.reply_to(message, "Maaf, bot ini hanya bisa digunakan oleh pemilik atau di grup tertentu.")
-        return
+        if message.from_user.id != options.auth_id and message.chat.id != options.auth_group_id:  # Gunakan 'and'
+            await bot.reply_to(message, "Maaf, bot ini hanya bisa digunakan oleh pemilik atau di grup tertentu.")
+            return
         # Check if the player is already in gemini_player_dict.
         if (str(message.from_user.id) in gemini_player_dict):
             del gemini_player_dict[str(message.from_user.id)]
@@ -299,9 +299,9 @@ async def main():
 
     @bot.message_handler(commands=["switch"])
     async def gemini_handler(message: Message):
-        if message.from_user.id != options.auth_id and message.chat.id != options.auth_group_id:  # Ditambahkan di sini
-        await bot.reply_to(message, "Maaf, bot ini hanya bisa digunakan oleh pemilik atau di grup tertentu.")
-        return
+        if message.from_user.id != options.auth_id and message.chat.id != options.auth_group_id:  # Gunakan 'and'
+            await bot.reply_to(message, "Maaf, bot ini hanya bisa digunakan oleh pemilik atau di grup tertentu.")
+            return
         if message.chat.type != "private":
             await bot.reply_to( message , "This command is only for private chat !")
             return
@@ -323,9 +323,9 @@ async def main():
     async def gemini_private_handler(message: Message):
         m = message.text.strip()
 
-        if message.from_user.id != options.auth_id and message.chat.id != options.auth_group_id:  # Ditambahkan di sini
-        await bot.reply_to(message, "Maaf, bot ini hanya bisa digunakan oleh pemilik atau di grup tertentu.")
-        return
+        if message.from_user.id != options.auth_id and message.chat.id != options.auth_group_id:  # Gunakan 'and'
+            await bot.reply_to(message, "Maaf, bot ini hanya bisa digunakan oleh pemilik atau di grup tertentu.")
+            return
         if str(message.from_user.id) not in default_model_dict:
             default_model_dict[str(message.from_user.id)] = True
             await gemini(bot,message,m)
@@ -340,9 +340,9 @@ async def main():
     async def gemini_photo_handler(message: Message) -> None:
         if message.chat.type != "private":
             s = message.caption
-            if message.from_user.id != options.auth_id and message.chat.id != options.auth_group_id:  # Ditambahkan di sini
-        await bot.reply_to(message, "Maaf, bot ini hanya bisa digunakan oleh pemilik atau di grup tertentu.")
-        return
+            if message.from_user.id != options.auth_id and message.chat.id != options.auth_group_id:  # Gunakan 'and'
+                await bot.reply_to(message, "Maaf, bot ini hanya bisa digunakan oleh pemilik atau di grup tertentu.")
+                return
             if not s or not (s.startswith("/gemini")):
                 return
             try:
