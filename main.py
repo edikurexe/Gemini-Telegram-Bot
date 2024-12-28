@@ -48,7 +48,7 @@ safety_settings = [
 async def main():
     # Init args
     parser = argparse.ArgumentParser()
-    parser.add_argument("tg_token", help="telegram token")
+    parser.add_argument("TELEGRAM_BOT_API_KEY", help="telegram token")
     parser.add_argument("GOOGLE_GEMINI_KEY", help="Google Gemini API key")
     parser.add_argument("auth_id", help="Authorized user ID", type=int)
     parser.add_argument("auth_group_id", help="Authorized group ID", type=int)
