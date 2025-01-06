@@ -5,7 +5,6 @@ import google.generativeai as genai
 import re
 import telebot
 from telebot.async_telebot import AsyncTeleBot
-from telebot import Client, filters, enums
 from telebot.types import  Message
 
 gemini_player_dict = {}
@@ -274,7 +273,7 @@ async def main():
             return
         await gemini(bot,message,m)
 
-    @bot.on_bot_business_message(commands=["gemini_pro"])
+    @bot.business_message_handler(commands=["gemini_pro"])
     async def gemini_handler(message: Message):
         if message.from_user.id != options.auth_id and message.chat.id != options.auth_group_id:  # Gunakan 'and'
             await bot.reply_to(message, "Maaf, bot ini hanya bisa digunakan oleh pemilik atau di grup tertentu.")
