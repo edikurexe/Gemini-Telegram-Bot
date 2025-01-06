@@ -4,7 +4,8 @@ import asyncio
 import google.generativeai as genai
 import re
 import telebot
-from telebot.async_telebot import AsyncTeleBot, Client, filters, enums
+from telebot.async_telebot import AsyncTeleBot
+from telebot import Client, filters, enums
 from telebot.types import  Message
 
 gemini_player_dict = {}
